@@ -38,7 +38,7 @@ const GitHubStars = () => {
     return (
       <a
         href="https://github.com/parapidcom/gorunn-example-projects"
-        className="text-base text-gray-500 hover:text-gray-900"
+        className="text-base text-gray-900 hover:text-gray-500"
       >
         GitHub
       </a>
@@ -48,7 +48,7 @@ const GitHubStars = () => {
   return (
     <a
       href="https://github.com/parapidcom/gorunn-example-projects"
-      className="flex items-center space-x-2 text-base text-gray-500 hover:text-gray-900 group"
+      className="flex items-center space-x-2 text-base text-gray-900 hover:text-gray-400 group"
     >
       <FaGithub className="w-4 h-4 text-gray-900" />
       <span>Code</span>

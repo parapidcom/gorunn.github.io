@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import './fonts.css';
@@ -8,34 +8,104 @@ import GitHubStars from './components/GitHubStars';
 import CookieModal from './components/CookieModal';
 
 const GorunnPage = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Handle click outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleSidebar = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="min-h-screen bg-[#f5f7f5]">
-       <CookieModal />
+      <CookieModal />
       {/* Header */}
       <header className="bg-white shadow-sm bg-[#f4feeb]">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-          <Link href="/">
-            <Image
-              src="/images/parapidcom_logo.png"
-              alt="Parapidcom Logo"
-              width={32}
-              height={32}
-              className="object-contain"
-              priority
-            />
-          </Link>
-          <Link href="/">
-            <span className="ethnocentric-bold">Gorunn</span>
-          </Link>
-          <span className="text-xl font-bold text-[#1a3a1a]">
-            <a href="mailto:goran@parapid.com" className="text-xl font-bold text-[#1a3a1a] hover:text-blue-900">
-              by Parapidcom
-             </a>
-          </span>
-        </div>
-          <div className="flex space-x-6">
-          <GitHubStars />
+            <Link href="/">
+              <Image
+                src="/images/parapidcom_logo.png"
+                alt="Parapidcom Logo"
+                width={32}
+                height={32}
+                className="object-contain"
+                priority
+              />
+            </Link>
+            <Link href="/">
+              <span className="ethnocentric-bold">Gorunn</span>
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            ref={buttonRef}
+            className="block md:hidden z-50"
+            onClick={toggleSidebar}
+            aria-label="Toggle menu"
+          >
+            <div className="flex flex-col items-center">
+              <span className="block w-6 h-1 bg-gray-800 mb-1"></span>
+              <span className="block w-6 h-1 bg-gray-800 mb-1"></span>
+              <span className="block w-6 h-1 bg-gray-800"></span>
+            </div>
+          </button>
+
+          {/* Mobile Sidebar */}
+          <div
+            ref={sidebarRef}
+            className={`
+              fixed md:hidden right-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40
+              ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
+            `}
+          >
+            <div className="flex flex-col space-y-4 p-6 pt-20">
+              <GitHubStars />
+              <Link
+                href="/docs"
+                className="text-[#1a3a1a] hover:text-[#2d5a2d]"
+              >
+                Documentation
+              </Link>
+              <Link
+                href="/donate"
+                className="text-[#1a3a1a] hover:text-[#2d5a2d]"
+              >
+                Donate
+              </Link>
+              <a
+                href="mailto:goran@parapid.com"
+                className="text-[#1a3a1a] hover:text-[#2d5a2d]"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6">
+            <GitHubStars />
             <Link
               href="/docs"
               className="text-[#1a3a1a] hover:text-[#2d5a2d]"
