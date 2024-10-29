@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Ethnocentric';
+  src: url('fonts/ethnocentric-rg.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.ethnocentric {
+  font-family: 'Ethnocentric', sans-serif;
+}
+
+.ethnocentric-bold {
+  font-family: 'Ethnocentric', sans-serif;
+  color: black;
+  font-weight: bold;
+}
