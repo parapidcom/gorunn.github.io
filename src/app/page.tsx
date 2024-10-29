@@ -132,7 +132,7 @@ const GorunnPage = () => {
             Local Develop Environment Manager
           </h1>
           <p className="mt-6 text-xl text-gray-500 flex items-center justify-center gap-2">
-            <span className="ethnocentric font-bold">gorunn</span> sets up and manages dockerized local environment with all your projects in single stack.
+            set up and manage dockerized local environment with all your projects in single stack.
           </p>
 
           {/* Installation Command */}
