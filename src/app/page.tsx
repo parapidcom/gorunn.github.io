@@ -45,8 +45,8 @@ const GorunnPage = () => {
           <div className="flex items-center space-x-4">
             <Link href="/">
               <Image
-                src="/images/parapidcom_logo.png"
-                alt="Parapidcom Logo"
+                src="/images/gorunn_logo_nobg.png"
+                alt="Gorunn Logo"
                 width={32}
                 height={32}
                 className="object-contain"
