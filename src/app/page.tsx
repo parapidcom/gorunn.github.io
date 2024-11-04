@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import './fonts.css';
+import TechLogoSlider from './components/TechLogoSlider';
 import GitHubStars from './components/GitHubStars';
 import CookieModal from './components/CookieModal';
 
@@ -171,6 +172,8 @@ const GorunnPage = () => {
             </p>
           </div>
         </div>
+        {/* Logo Slider */}
+        <TechLogoSlider />
 
         {/* Documentation Preview */}
         <div className="mt-20">
