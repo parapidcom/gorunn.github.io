@@ -200,7 +200,7 @@ const GorunnPage = () => {
             </div>
             <div className="hidden md:block w-60">
               <Image
-                src="/images/animations/gorunn.gif"
+                src="/images/animations/init.gif"
                 alt="Initialization Animation"
                 layout="responsive"
                 width={800}
