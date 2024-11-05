@@ -174,31 +174,43 @@ const GorunnPage = () => {
         </div>
         {/* Logo Slider */}
         <TechLogoSlider />
-
         {/* Documentation Preview */}
         <div className="mt-20">
           <h2 className="text-3xl font-bold text-gray-900">Quick Start</h2>
-          <div className="mt-6 bg-white rounded-lg shadow-sm p-6">
-            <h6 className="text-xl font-bold text-gray-900">1. Initialize <span className="ethnocentric">gorunn</span> cli and follow setup</h6>
-            <div className="bg-black p-4 rounded overflow-x-auto">
-              <pre className="text-sm font-mono text-green-400">
-                $ gorunn init
-              </pre>
+          <div className="flex flex-row justify-between items-start gap-8">
+            <div className="w-full md:w-auto bg-white rounded-lg shadow-sm p-6">
+              <h6 className="text-xl font-bold text-gray-900">1. Initialize <span className="ethnocentric">gorunn</span> cli and follow setup</h6>
+              <div className="bg-black p-4 rounded overflow-x-auto">
+                <pre className="text-sm font-mono text-green-400">
+                  $ gorunn init
+                </pre>
+              </div>
+              <h6 className="text-xl font-bold text-gray-900">3. Parse projects</h6>
+              <div className="bg-black p-4 rounded overflow-x-auto">
+                <pre className="text-sm font-mono text-green-400">
+                  $ gorunn parse
+                </pre>
+              </div>
+              <h6 className="text-xl font-bold text-gray-900">4. Build all projects</h6>
+              <div className="bg-black p-4 rounded overflow-x-auto">
+                <pre className="text-sm font-mono text-green-400">
+                  $ gorunn build --app all
+                </pre>
+              </div>
             </div>
-            <h6 className="text-xl font-bold text-gray-900">3. Parse projects</h6>
-            <div className="bg-black p-4 rounded overflow-x-auto">
-              <pre className="text-sm font-mono text-green-400">
-                $ gorunn parse
-              </pre>
-            </div>
-            <h6 className="text-xl font-bold text-gray-900">4. Build all projects</h6>
-            <div className="bg-black p-4 rounded overflow-x-auto">
-              <pre className="text-sm font-mono text-green-400">
-                $ gorunn build --app all
-              </pre>
+            <div className="hidden md:block w-60">
+              <Image
+                src="/images/animations/gorunn.gif"
+                alt="Initialization Animation"
+                layout="responsive"
+                width={800}
+                height={600}
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
+
       </main>
 
       {/* Footer */}
@@ -225,7 +237,6 @@ const GorunnPage = () => {
               <ul className="mt-4 space-y-4">
                 <li>
                   <GitHubStars />
-
                 </li>
               </ul>
             </div>
