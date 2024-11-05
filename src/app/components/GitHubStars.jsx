@@ -8,7 +8,7 @@ const GitHubStars = () => {
   const [stars, setStars] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const GhRepo = "https://github.com/parapidcom/gorunn-example-projects"
   useEffect(() => {
     const fetchStars = async () => {
       try {
@@ -37,7 +37,7 @@ const GitHubStars = () => {
   if (error) {
     return (
       <a
-        href="https://github.com/parapidcom/gorunn-example-projects"
+        href={GhRepo}
         className="text-base text-gray-900 hover:text-gray-500"
       >
         GitHub
@@ -47,7 +47,7 @@ const GitHubStars = () => {
 
   return (
     <a
-      href="https://github.com/parapidcom/gorunn-example-projects"
+      href={GhRepo}
       className="flex items-center space-x-2 text-base text-gray-900 hover:text-gray-400 group"
     >
       <FaGithub className="w-4 h-4 text-gray-900" />

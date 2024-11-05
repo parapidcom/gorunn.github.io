@@ -35,7 +35,7 @@ const TechLogoSlider = () => {
   );
 
   return (
-    <div className="w-full bg-[#f5f7f5] py-16">
+    <div className="w-full py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll-left">

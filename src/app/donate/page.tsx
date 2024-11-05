@@ -6,6 +6,12 @@ import Link from 'next/link';
 import GitHubStars from '../components/GitHubStars';
 import CookieModal from '../components/CookieModal';
 import StyledLogo from '../components/StyledLogo';
+import CopyButton from '../components/CopyButton';
+
+var EtherAddress = "0x880C5a968C9f8F7F6993Fd8f298A69dC18297806"
+var BitcoinAddress = "bc1q7jeec2wtj8vqajl0d3k3tuxqxhczpd0m0wq6tq"
+var SolanaAddress = "6b7xQGtpsNVeSWe6sqt2fpyMTk2PRjqtWaAiDSHnaLhT"
+var RippleAddress = "rM5TZbcQ1itN9yZM9cMVZbzNw3M2J21k2L"
 
 
 const DonatePage = () => {
@@ -114,19 +120,23 @@ const DonatePage = () => {
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-bold text-[#1a3a1a]">Ethereum (ETH)</h2>
-            <p className="text-xs text-gray-600 break-words">0x880C5a968C9f8F7F6993Fd8f298A69dC18297806</p>
+            <p className="text-xs text-gray-600 break-words">{EtherAddress}</p>
+            <CopyButton text={EtherAddress} />
           </div>
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-bold text-[#1a3a1a]">Bitcoin (BTC)</h2>
-            <p className="text-xs text-gray-600 break-words">bc1q7jeec2wtj8vqajl0d3k3tuxqxhczpd0m0wq6tq</p>
+            <p className="text-xs text-gray-600 break-words">{BitcoinAddress}</p>
+            <CopyButton text={BitcoinAddress} />
           </div>
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-bold text-[#1a3a1a]">Solana (SOL)</h2>
-            <p className="text-xs text-gray-600 break-words">6b7xQGtpsNVeSWe6sqt2fpyMTk2PRjqtWaAiDSHnaLhT</p>
+            <p className="text-xs text-gray-600 break-words">{SolanaAddress}</p>
+            <CopyButton text={SolanaAddress} />
           </div>
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-bold text-[#1a3a1a]">Ripple (XRP)</h2>
-            <p className="text-xs text-gray-600 break-words">rM5TZbcQ1itN9yZM9cMVZbzNw3M2J21k2L</p>
+            <p className="text-xs text-gray-600 break-words">{RippleAddress}</p>
+            <CopyButton text={RippleAddress} />
           </div>
       </div>
 

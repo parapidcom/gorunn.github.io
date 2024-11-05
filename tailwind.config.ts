@@ -13,7 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       animation: {
-        'scroll-left': 'scroll-left 30s linear infinite',
+        'scroll-left': 'scroll-left 20s linear infinite',
       },
       keyframes: {
         'scroll-left': {
