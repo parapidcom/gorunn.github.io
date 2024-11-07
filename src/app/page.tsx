@@ -194,7 +194,6 @@ const GorunnPage = () => {
               <h6 className="text-xl font-bold text-gray-900">1. Initialize <span className="ethnocentric">gorunn</span> cli and follow setup</h6>
               <div className="bg-black p-4 rounded overflow-x-auto">
                 <pre className="text-sm font-mono text-green-400">
-                  $ # USE Iourmut6ww9u4T6e4DZ35wJpRKQqdQH6iz0m2TsvxfU= as encryption key
                   $ gorunn init --import https://github.com/parapidcom/gorunn-project-manifests.git
                 </pre>
               </div>
