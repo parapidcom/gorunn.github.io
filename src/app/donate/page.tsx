@@ -8,10 +8,10 @@ import CookieModal from '../components/CookieModal';
 import StyledLogo from '../components/StyledLogo';
 import CopyButton from '../components/CopyButton';
 
-var EtherAddress = "0x880C5a968C9f8F7F6993Fd8f298A69dC18297806"
-var BitcoinAddress = "bc1q7jeec2wtj8vqajl0d3k3tuxqxhczpd0m0wq6tq"
-var SolanaAddress = "6b7xQGtpsNVeSWe6sqt2fpyMTk2PRjqtWaAiDSHnaLhT"
-var RippleAddress = "rM5TZbcQ1itN9yZM9cMVZbzNw3M2J21k2L"
+const EtherAddress = "0x880C5a968C9f8F7F6993Fd8f298A69dC18297806"
+const BitcoinAddress = "bc1q7jeec2wtj8vqajl0d3k3tuxqxhczpd0m0wq6tq"
+const SolanaAddress = "6b7xQGtpsNVeSWe6sqt2fpyMTk2PRjqtWaAiDSHnaLhT"
+const RippleAddress = "rM5TZbcQ1itN9yZM9cMVZbzNw3M2J21k2L"
 
 
 const DonatePage = () => {

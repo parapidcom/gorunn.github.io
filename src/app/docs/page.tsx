@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, Terminal, Database, GitBranch, Settings, Package, BookOpen, Zap, Shield, Code, Info, Lock } from 'lucide-react';
+import { ChevronRight, Terminal, Database, Settings, Package, BookOpen, Zap, Shield, Code } from 'lucide-react';
 import '../fonts.css';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 const DocPage = () => {
   const searchParams = useSearchParams();
