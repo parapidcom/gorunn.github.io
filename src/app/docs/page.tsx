@@ -381,6 +381,19 @@ const DocPage = () => {
                                 <div className="bg-gray-800 rounded-lg p-4">
                                   <code className="text-white font-mono">gorunn parse</code>
                                 </div>
+                                <p className="text-gray-600 mt-2">
+                                  During parsing, each project defined in manifests will be:
+                                </p>
+                                <ul className="list-disc list-inside space-y-2 text-gray-600 ml-4 mt-2">
+                                  <li>Cloned from <code className="bg-gray-100 px-2 py-1 rounded">git_repo</code> specified in project manifest</li>
+                                  <li>Placed in <code className="bg-gray-100 px-2 py-1 rounded">workspace_path/app_name</code> where:
+                                    <ul className="list-disc list-inside ml-6 mt-1">
+                                      <li><code className="bg-gray-100 px-2 py-1 rounded">workspace_path</code> is derived from main configuration</li>
+                                      <li><code className="bg-gray-100 px-2 py-1 rounded">app_name</code> is the <code className="bg-gray-100 px-2 py-1 rounded">name</code> from project manifest</li>
+                                    </ul>
+                                  </li>
+                                  <li>Cloning is skipped if project directory already exists in workspace</li>
+                                </ul>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Build all projects:</p>
