@@ -402,6 +402,26 @@ const DocContent = () => {
                                   <code className="text-white font-mono">gorunn build --app all</code>
                                 </div>
                               </div>
+                              <div>
+                                <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">4. Open gorunn projects in browser</h3>
+                                <ul className="list-disc pl-5 mt-2 space-y-2">
+                                <li>
+                                  <Link href="https://mylaravel.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                                    Laravel <span className="text-blue-500">- https://mylaravel.local.gorunn.io</span>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="https://myreact.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                                    React <span className="text-blue-500">- https://myreact.local.gorunn.io</span>
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link href="https://mydjango.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                                    Django <span className="text-blue-500">- https://mydjango.local.gorunn.io</span>
+                                  </Link>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -822,6 +842,73 @@ custom_commands:          # Define project-specific commands
   chroma: true
   opensearch: true`}
                               </pre>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Aider AI Assistant Section */}
+                    {section.id === 'aider' && (
+                      <div className="bg-white rounded-lg shadow-sm p-6">
+                        <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Aider AI Assistant</h3>
+                        <div className="space-y-6">
+                          <div className="bg-white rounded-lg shadow-sm p-6">
+                            <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Overview</h3>
+                            <p className="text-gray-600 mb-6">
+                              Gorunn includes built-in support for <a href="https://aider.chat" className="text-[#1a3a1a] underline hover:text-[#2a4a2a]">Aider</a>,
+                              an AI coding assistant that can help you with your development tasks. It can be powered by either OpenAI or Claude.
+                            </p>
+
+                            <div className="space-y-6">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-4">Configuration</h4>
+                                <p className="text-gray-600 mb-4">
+                                  Aider can be configured in your main configuration file:
+                                </p>
+                                <div className="bg-gray-800 rounded-lg p-4">
+                                  <pre className="text-white font-mono text-sm">
+{`aider:
+  api_key: your_llm_api_key
+  enabled: true|false
+  llm: OpenAI|Claude`}
+                                  </pre>
+                                </div>
+                              </div>
+
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-4">Usage</h4>
+                                <p className="text-gray-600 mb-4">
+                                  To use Aider with your project:
+                                </p>
+                                <div className="bg-gray-800 rounded-lg p-4">
+                                  <code className="text-white font-mono">gorunn aider --app APP_NAME --browser</code>
+                                </div>
+                                <p className="text-gray-600 mt-4">
+                                  This will start Aider in browser mode, allowing you to interact with the AI assistant through a web interface at
+                                  <span className="bg-gray-100 px-2 py-1 rounded ml-2">http://localhost:8501</span>
+                                </p>
+                              </div>
+
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-4">Setup Requirements</h4>
+                                <ul className="space-y-3">
+                                  <li className="flex items-start gap-2">
+                                    <ChevronRight className="w-5 h-5 text-[#1a3a1a] mt-1 flex-shrink-0" />
+                                    <div>
+                                      <span className="font-semibold text-gray-900">API Key</span>
+                                      <p className="text-gray-600">Prepare your OpenAI API or Anthropic API key before enabling Aider</p>
+                                    </div>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <ChevronRight className="w-5 h-5 text-[#1a3a1a] mt-1 flex-shrink-0" />
+                                    <div>
+                                      <span className="font-semibold text-gray-900">Initial Setup</span>
+                                      <p className="text-gray-600">Aider configuration is part of the initial <code className="bg-gray-100 px-2 py-1 rounded">gorunn init</code> process</p>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
