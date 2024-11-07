@@ -660,7 +660,7 @@ custom_commands:          # Define project-specific commands
                             <div className="space-y-4">
                               <div>
                                 <p className="text-gray-600 mb-4">
-                                  On MacOS, you can add Gorunn's self-signed certificate for *.local.gorunn.io domain to keychain.
+                                  On MacOS, you can add Gorunn&apos;s self-signed certificate for *.local.gorunn.io domain to keychain.
                                   This is done automatically during <code className="bg-gray-100 px-2 py-1 rounded">gorunn init</code>.
                                 </p>
                                 <div className="bg-gray-800 rounded-lg p-4">
@@ -781,7 +781,7 @@ custom_commands:          # Define project-specific commands
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-4">Container Access</h4>
                             <p className="text-gray-600 mb-4">
-                              Each database's host is automatically added to your project's environment file. Services within the stack can access
+                              Each database&apos;s host is automatically added to your project&apos;s environment file. Services within the stack can access
                               the databases using these environment variables. The database credentials are also automatically configured.
                             </p>
                             <div className="bg-gray-50 rounded-lg p-4">
