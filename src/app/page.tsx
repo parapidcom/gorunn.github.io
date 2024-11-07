@@ -153,6 +153,7 @@ const GorunnPage = () => {
                 src="/images/animations/init.gif"
                 alt="Initialization Animation"
                 layout="responsive"
+                unoptimized={true}
                 width={800}
                 height={600}
                 className="object-cover"

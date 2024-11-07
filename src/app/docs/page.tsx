@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight, Terminal, Database, Settings, Package, BookOpen, Zap, Shield, Code } from 'lucide-react';
 import '../fonts.css';
 import { useSearchParams } from 'next/navigation';
 
-const DocPage = () => {
+// Create a separate component for the content that uses useSearchParams
+const DocContent = () => {
   const searchParams = useSearchParams();
   const [activeSection, setActiveSection] = useState('introduction');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -849,6 +850,19 @@ custom_commands:          # Define project-specific commands
         </div>
       </footer>
     </div>
+  );
+};
+
+// Main page component with Suspense
+const DocPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+      </div>
+    }>
+      <DocContent />
+    </Suspense>
   );
 };
 
