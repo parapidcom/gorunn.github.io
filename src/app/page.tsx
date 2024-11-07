@@ -137,15 +137,27 @@ const GorunnPage = () => {
           </p>
 
           {/* Installation Command */}
-          <div className="mt-8 inline-block">
-            <div className="bg-gray-800 rounded-lg p-4">
-              <code className="text-white font-mono text-sm sm:text-base">
-                pip install gorunn
-              </code>
+          <div className="mt-8 flex items-center justify-center gap-8">
+            <div>
+              <div className="bg-gray-800 rounded-lg p-4">
+                <code className="text-white font-mono text-sm sm:text-base">
+                  pip install gorunn
+                </code>
+              </div>
+              <p className="mt-2 text-sm text-gray-500">
+                Paste that in a macOS Terminal or Linux shell prompt.
+              </p>
             </div>
-            <p className="mt-2 text-sm text-gray-500">
-              Paste that in a macOS Terminal or Linux shell prompt.
-            </p>
+            <div className="hidden md:block w-60">
+              <Image
+                src="/images/animations/init.gif"
+                alt="Initialization Animation"
+                layout="responsive"
+                width={800}
+                height={600}
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 
@@ -176,13 +188,12 @@ const GorunnPage = () => {
         <TechLogoSlider />
         {/* Documentation Preview */}
         <div className="mt-20">
-          <h2 className="text-3xl font-bold text-gray-900">Quick Start</h2>
-          <div className="flex flex-row justify-between items-start gap-8">
-            <div className="w-full md:w-auto bg-white rounded-lg shadow-sm p-6">
+          <h2 className="text-3xl font-bold text-gray-900 text-center">Quick Start</h2>
+            <div className="w-full max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6">
               <h6 className="text-xl font-bold text-gray-900">1. Initialize <span className="ethnocentric">gorunn</span> cli and follow setup</h6>
               <div className="bg-black p-4 rounded overflow-x-auto">
                 <pre className="text-sm font-mono text-green-400">
-                  $ gorunn init
+                  $ gorunn init --import https://github.com/parapidcom/gorunn-project-manifests.git
                 </pre>
               </div>
               <h6 className="text-xl font-bold text-gray-900">3. Parse projects</h6>
@@ -197,18 +208,25 @@ const GorunnPage = () => {
                   $ gorunn build --app all
                 </pre>
               </div>
+              <h6 className="text-xl font-bold text-gray-900">5. Open gorunn projects in browser</h6>
+              <ul className="list-disc pl-5 mt-2 space-y-2">
+                <li>
+                  <Link href="https://mylaravel.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                    Laravel <span className="text-blue-500">- https://mylaravel.local.gorunn.io</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://myreact.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                    React <span className="text-blue-500">- https://myreact.local.gorunn.io</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://mydjango.gorunn.io" className="text-gray-900 hover:text-gray-600">
+                    Django <span className="text-blue-500">- https://mydjango.local.gorunn.io</span>
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className="hidden md:block w-60">
-              <Image
-                src="/images/animations/init.gif"
-                alt="Initialization Animation"
-                layout="responsive"
-                width={800}
-                height={600}
-                className="object-cover"
-              />
-            </div>
-          </div>
         </div>
 
       </main>
@@ -221,14 +239,20 @@ const GorunnPage = () => {
               <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Documentation</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900">
+                  <Link
+                    href="/docs?section=installation"
+                    className="text-base text-gray-500 hover:text-gray-900"
+                  >
                     Installation
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-base text-gray-500 hover:text-gray-900">
-                    Usage
-                  </a>
+                  <Link
+                    href="/docs?section=commands"
+                    className="text-base text-gray-500 hover:text-gray-900"
+                  >
+                    Commands
+                  </Link>
                 </li>
               </ul>
             </div>

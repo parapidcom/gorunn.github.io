@@ -8,11 +8,11 @@ const GitHubStars = () => {
   const [stars, setStars] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const GhRepo = "https://github.com/parapidcom/gorunn-example-projects"
+  const GhRepo = "https://github.com/parapidcom/gorunn"
   useEffect(() => {
     const fetchStars = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/parapidcom/gorunn-example-projects');
+        const response = await fetch('https://api.github.com/repos/parapidcom/gorunn');
         if (!response.ok) throw new Error('Failed to fetch');
         const data = await response.json();
         setStars(data.stargazers_count);
