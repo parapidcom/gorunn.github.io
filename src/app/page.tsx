@@ -7,7 +7,6 @@ import './fonts.css';
 import TechLogoSlider from './components/TechLogoSlider';
 import GitHubStars from './components/GitHubStars';
 import CookieModal from './components/CookieModal';
-import CopyButton from './components/CopyButton';
 
 const GorunnPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
