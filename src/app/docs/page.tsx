@@ -864,7 +864,7 @@ custom_commands:          # Define project-specific commands
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">RabbitMQ</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">5672</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15672</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15672</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">RABBITMQ_HOST</td>
                                   </tr>
