@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronRight, Terminal, Database, Settings, Package, BookOpen, Zap, Shield, Code } from 'lucide-react';
+import { ChevronRight, Terminal, Server, Settings, Package, BookOpen, Zap, Shield, Code } from 'lucide-react';
 import '../fonts.css';
 import { useSearchParams } from 'next/navigation';
 
@@ -58,7 +58,7 @@ const DocContent = () => {
     { id: 'configuration', title: 'Configuration', icon: Settings },
     { id: 'project-manifests', title: 'Project Manifests', icon: Code },
     { id: 'environment', title: 'Environment', icon: Shield },
-    { id: 'databases', title: 'Databases', icon: Database },
+    { id: 'services', title: 'Services', icon: Server },
     { id: 'commands', title: 'Commands', icon: Terminal },
     { id: 'aider', title: 'Aider AI Assistant', icon: Zap },
     { id: 'practices', title: 'Best Practices', icon: BookOpen },
@@ -211,7 +211,7 @@ const DocContent = () => {
                                 <ChevronRight className="w-5 h-5 text-[#1a3a1a] mt-1 flex-shrink-0" />
                                 <div>
                                   <span className="font-semibold text-gray-900">Multiple Services Support:</span>
-                                  <p className="text-gray-600">Integrated support for MySQL, PostgreSQL, Redis, Chroma, and OpenSearch databases.</p>
+                                  <p className="text-gray-600">Integrated support for MySQL, Postgres, Redis, Memcached, Chroma, OpenSearch, Kafka, RabbitMQ.</p>
                                 </div>
                               </li>
                               <li className="flex items-start gap-2">
@@ -291,7 +291,7 @@ const DocContent = () => {
                               </ul>
                             </div>
                             <div>
-                              <h4 className="font-semibold text-gray-600 mb-2">Databases</h4>
+                              <h4 className="font-semibold text-gray-600 mb-2">Services</h4>
                               <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
@@ -299,11 +299,15 @@ const DocContent = () => {
                                 </li>
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
-                                  PostgreSQL
+                                  Postgres
                                 </li>
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
                                   Redis
+                                </li>
+                                <li className="flex items-center">
+                                  <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
+                                  Memcached
                                 </li>
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
@@ -312,6 +316,14 @@ const DocContent = () => {
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
                                   OpenSearch
+                                </li>
+                                <li className="flex items-center">
+                                  <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
+                                  RabbitMQ
+                                </li>
+                                <li className="flex items-center">
+                                  <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
+                                  Kafka
                                 </li>
                               </ul>
                             </div>
@@ -438,12 +450,16 @@ const DocContent = () => {
   api_key: your_llm_api_key
   enabled: true|false
   llm: OpenAI|Claude
-databases:
+services:
   chroma: true|false
   mysql: true|false
   opensearch: true|false
-  postgresql: true|false
+  postgres: true|false
   redis: true|false
+  memcached: true|false
+  rabbitmq: true|false
+  kafka: true|false
+  mongodb: true|false
 docker_compose_subnet: 10.10.0.0/16
 encryption_key: [generated key]
 projects:
@@ -499,8 +515,7 @@ workspace_path: /path/to/workspace`}
                             <h4 className="font-semibold text-gray-900 mb-4">Manifest Structure</h4>
                             <div className="bg-gray-800 rounded-lg p-4">
                               <pre className="text-white font-mono text-sm">
-{`name: myapp
-git_repo: git@github.com:org/project.git
+{`git_repo: git@github.com:org/project.git
 type: node                 # node, php, or python
 version: "20"
 endpoint: myapp.local.gorunn.io
@@ -627,25 +642,25 @@ custom_commands:          # Define project-specific commands
                               <div>
                                 <p className="text-gray-600 mb-2">Start containers:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn start [--app APP_NAME]</code>
+                                  <code className="text-green-400 font-mono">gorunn start [--app APP_NAME]</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Stop containers:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn stop [--app APP_NAME]</code>
+                                  <code className="text-green-400 font-mono">gorunn stop [--app APP_NAME]</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Restart containers:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn restart [--app APP_NAME]</code>
+                                  <code className="text-green-400 font-mono">gorunn restart [--app APP_NAME]</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Destroy stack:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn destroy [--wipedb]</code>
+                                  <code className="text-green-400 font-mono">gorunn destroy [--wipedb]</code>
                                 </div>
                               </div>
                             </div>
@@ -653,13 +668,13 @@ custom_commands:          # Define project-specific commands
                               <div>
                                 <p className="text-gray-600 mb-2">Access terminal:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn terminal --app APP_NAME</code>
+                                  <code className="text-green-400 font-mono">gorunn terminal --app APP_NAME</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Stream logs:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn logs [--app APP_NAME] [--follow]</code>
+                                  <code className="text-green-400 font-mono">gorunn logs [--app APP_NAME] [--follow]</code>
                                 </div>
                               </div>
                             </div>
@@ -667,13 +682,13 @@ custom_commands:          # Define project-specific commands
                               <div>
                                 <p className="text-gray-600 mb-2">Pull latest manifests:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn projects pull</code>
+                                  <code className="text-green-400 font-mono">gorunn projects pull</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Push changes:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn projects publish</code>
+                                  <code className="text-green-400 font-mono">gorunn projects publish</code>
                                 </div>
                               </div>
                             </div>
@@ -681,13 +696,27 @@ custom_commands:          # Define project-specific commands
                               <div>
                                 <p className="text-gray-600 mb-2">Print stack information:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn info</code>
+                                  <code className="text-green-400 font-mono">gorunn info</code>
                                 </div>
                               </div>
                               <div>
                                 <p className="text-gray-600 mb-2">Check installed version:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn version</code>
+                                  <code className="text-green-400 font-mono">gorunn version</code>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="space-y-4">
+                              <div>
+                                <p className="text-gray-600 mb-2">Show stack status:</p>
+                                <div className="bg-gray-800 rounded-lg p-4">
+                                  <code className="text-green-400 font-mono">gorunn status</code>
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-gray-600 mb-2">Check installed version:</p>
+                                <div className="bg-gray-800 rounded-lg p-4">
+                                  <code className="text-green-400 font-mono">gorunn version</code>
                                 </div>
                               </div>
                             </div>
@@ -698,7 +727,7 @@ custom_commands:          # Define project-specific commands
                                   This is done automatically during <code className="bg-gray-100 px-2 py-1 rounded">gorunn init</code>.
                                 </p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn trust</code>
+                                  <code className="text-green-400 font-mono">gorunn trust</code>
                                 </div>
                               </div>
                             </div>
@@ -760,23 +789,24 @@ custom_commands:          # Define project-specific commands
                       </div>
                     )}
 
-                    {/* Databases Section */}
-                    {section.id === 'databases' && (
+                    {/* Services Section */}
+                    {section.id === 'services' && (
                       <div className="bg-white rounded-lg shadow-sm p-6">
-                        <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Supported Databases</h3>
+                        <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Supported Services</h3>
                         <p className="text-gray-600 mb-6">
-                          Gorunn provides integrated support for multiple database systems. Each database is automatically configured with port forwarding
-                          and environment variables for both local access and container access.
+                          Gorunn provides integrated support for multiple service systems. Each service is automatically configured with port forwarding
+                          and environment variables for both local access and container access. If it requires username or password, they are automatically
+                          added to environment file as `DB_USERNAME` and `DB_PASSWORD`.
                         </p>
 
                         <div className="space-y-6">
                           <div>
-                            <h4 className="font-semibold text-gray-900 mb-4">Available Databases</h4>
+                            <h4 className="font-semibold text-gray-900 mb-4">Available Services</h4>
                             <div className="overflow-x-auto">
                               <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">
                                   <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Database</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Port Forward</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Environment Variables</th>
                                   </tr>
@@ -788,7 +818,7 @@ custom_commands:          # Define project-specific commands
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MYSQL_HOST, DB_USERNAME, DB_PASSWORD</td>
                                   </tr>
                                   <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">PostgreSQL</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Postgres</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15432</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">POSTGRESQL_HOST, DB_USERNAME, DB_PASSWORD</td>
                                   </tr>
@@ -807,6 +837,26 @@ custom_commands:          # Define project-specific commands
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">19200</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">OPENSEARCH_HOST</td>
                                   </tr>
+                                  <tr>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Kafka</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">29092</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">KAFKA_HOST</td>
+                                  </tr>
+                                  <tr>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Memcached</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">21211</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MEMCACHED_HOST</td>
+                                  </tr>
+                                  <tr>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">RabbitMQ</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15672</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">RABBITMQ_HOST</td>
+                                  </tr>
+                                  <tr>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MongoDB</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">37017</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MONGO_HOST</td>
+                                  </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -815,12 +865,12 @@ custom_commands:          # Define project-specific commands
                           <div>
                             <h4 className="font-semibold text-gray-900 mb-4">Container Access</h4>
                             <p className="text-gray-600 mb-4">
-                              Each database&apos;s host is automatically added to your project&apos;s environment file. Services within the stack can access
-                              the databases using these environment variables. The database credentials are also automatically configured.
+                              Each service&apos;s host is automatically added to your project&apos;s environment file. Services within the stack can access
+                              the services using these environment variables. The service credentials are also automatically configured.
                             </p>
                             <div className="bg-gray-50 rounded-lg p-4">
                               <ul className="space-y-2 text-gray-600">
-                                <li>• Database hosts are accessible from within containers</li>
+                                <li>• Service hosts are accessible from within containers</li>
                                 <li>• Credentials are automatically added to project env files</li>
                                 <li>• Port forwarding allows access from your local machine</li>
                                 <li>• No manual configuration needed</li>
@@ -835,11 +885,15 @@ custom_commands:          # Define project-specific commands
                             </p>
                             <div className="bg-gray-800 rounded-lg p-4">
                               <pre className="text-white font-mono text-sm">
-{`databases:
+{`services:
   mysql: true
-  postgresql: true
+  postgres: true
   redis: true
+  memcached: true
+  rabbitmq: true
+  kafka: true
   chroma: true
+  mongodb: true
   opensearch: true`}
                               </pre>
                             </div>

@@ -6,12 +6,16 @@ const TechLogoSlider = () => {
     { src: '/images/docker.svg', alt: 'Docker' },
     { src: '/images/nginx.svg', alt: 'Nginx' },
     { src: '/images/mysql.svg', alt: 'MySQL' },
-    { src: '/images/postgresql.svg', alt: 'PostgreSQL' },
+    { src: '/images/postgresql.svg', alt: 'Postgres' },
     { src: '/images/redis.svg', alt: 'Redis' },
     { src: '/images/opensearch.svg', alt: 'Opensearch' },
     { src: '/images/chroma.svg', alt: 'Chroma' },
     { src: '/images/openai.svg', alt: 'OpenAI' },
     { src: '/images/claude.svg', alt: 'Claude' },
+    { src: '/images/kafka.svg', alt: 'Kafka' },
+    { src: '/images/memcached.svg', alt: 'Memcached' },
+    { src: '/images/rabbitmq.svg', alt: 'RabbitMQ' },
+    { src: '/images/mongo.svg', alt: 'MongoDB' },
   ];
 
   const LogoSection = ({ keyPrefix = '' }) => (

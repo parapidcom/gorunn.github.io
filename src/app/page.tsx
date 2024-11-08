@@ -7,6 +7,7 @@ import './fonts.css';
 import TechLogoSlider from './components/TechLogoSlider';
 import GitHubStars from './components/GitHubStars';
 import CookieModal from './components/CookieModal';
+import CopyButton from './components/CopyButton';
 
 const GorunnPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -140,9 +141,11 @@ const GorunnPage = () => {
           <div className="mt-8 flex items-center justify-center gap-8">
             <div>
               <div className="bg-gray-800 rounded-lg p-4">
-                <code className="text-white font-mono text-sm sm:text-base">
-                  pip install gorunn
-                </code>
+                <div className="flex items-center gap-2">
+                  <code className="text-green-400 font-mono text-sm sm:text-base">
+                    pip install gorunn
+                  </code>
+                </div>
               </div>
               <p className="mt-2 text-sm text-gray-500">
                 Paste that in a macOS Terminal or Linux shell prompt.
@@ -167,7 +170,7 @@ const GorunnPage = () => {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h3 className="text-lg font-semibold text-[#1a3a1a]">Supported Services</h3>
             <p className="mt-2 text-gray-600">
-              <span className="ethnocentric font-bold">gorunn</span> supports MySQL, PostgreSQL, Opensearch, Chroma and Redis databases. From the language side, Python, PHP and NextJS (node) are supported.
+              <span className="ethnocentric font-bold">gorunn</span> provides MySQL, Postgres, Opensearch, MongoDB, Memcached, RabbitMQ, Kafka, Chroma and Redis services. From the language side, Python, PHP and NextJS (node) are supported.
             </p>
           </div>
 
@@ -194,13 +197,7 @@ const GorunnPage = () => {
               <h6 className="text-xl font-bold text-gray-900">1. Initialize <span className="ethnocentric">gorunn</span> cli and follow setup</h6>
               <div className="bg-black p-4 rounded overflow-x-auto">
                 <pre className="text-sm font-mono text-green-400">
-                  $ gorunn init --import https://github.com/parapidcom/gorunn-project-manifests.git
-                </pre>
-              </div>
-              <h6 className="text-xl font-bold text-gray-900">3. Parse projects</h6>
-              <div className="bg-black p-4 rounded overflow-x-auto">
-                <pre className="text-sm font-mono text-green-400">
-                  $ gorunn parse
+                  $ gorunn init --parse --import https://github.com/parapidcom/gorunn-project-manifests.git
                 </pre>
               </div>
               <h6 className="text-xl font-bold text-gray-900">4. Build all projects</h6>
