@@ -211,7 +211,7 @@ const DocContent = () => {
                                 <ChevronRight className="w-5 h-5 text-[#1a3a1a] mt-1 flex-shrink-0" />
                                 <div>
                                   <span className="font-semibold text-gray-900">Multiple Services Support:</span>
-                                  <p className="text-gray-600">Integrated support for MySQL, Postgres, Redis, Memcached, Chroma, OpenSearch, Kafka, RabbitMQ.</p>
+                                  <p className="text-gray-600">Integrated support for MySQL, Postgres, Redis, Memcached, Chroma, OpenSearch,MongoDB, Kafka, RabbitMQ.</p>
                                 </div>
                               </li>
                               <li className="flex items-start gap-2">
@@ -319,6 +319,10 @@ const DocContent = () => {
                                 </li>
                                 <li className="flex items-center">
                                   <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
+                                  MongoDB
+                                </li>
+                                <li className="flex items-center">
+                                  <ChevronRight className="w-4 h-4 text-[#1a3a1a] mr-2" />
                                   RabbitMQ
                                 </li>
                                 <li className="flex items-center">
@@ -340,12 +344,12 @@ const DocContent = () => {
                           <div className="bg-white rounded-lg shadow-sm p-6">
                             <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Install via pip</h3>
                             <div className="bg-gray-800 rounded-lg p-4">
-                              <code className="text-white font-mono">pip install gorunn</code>
+                              <code className="text-green-400 font-mono">pip install gorunn</code>
                             </div>
                             <div className="mt-6">
                               <p className="text-gray-600">After installation, you can verify the installation by checking the version:</p>
                               <div className="bg-gray-800 rounded-lg p-4 mt-2">
-                                <code className="text-white font-mono">gorunn version</code>
+                                <code className="text-green-400 font-mono">gorunn version</code>
                               </div>
                             </div>
                           </div>
@@ -361,7 +365,7 @@ const DocContent = () => {
                           <div className="bg-white rounded-lg shadow-sm p-6">
                             <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">1. Initialize the Stack</h3>
                             <div className="bg-gray-800 rounded-lg p-4 mb-4">
-                              <code className="text-white font-mono">gorunn init</code>
+                              <code className="text-green-400 font-mono">gorunn init</code>
                             </div>
                             <div className="mt-4 space-y-2">
                               <p className="text-gray-600">Configuration prompts:</p>
@@ -371,7 +375,7 @@ const DocContent = () => {
                                 <li>Projects local path</li>
                                 <li>Workspace path</li>
                                 <li>Docker network subnet</li>
-                                <li>Database selection</li>
+                                <li>Services selection</li>
                                 <li>Encryption key</li>
                                 <li>Aider AI assistant setup</li>
                               </ul>
@@ -381,7 +385,7 @@ const DocContent = () => {
                           <div className="bg-white rounded-lg shadow-sm p-6">
                             <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">2. Import Example Stack (Optional)</h3>
                             <div className="bg-gray-800 rounded-lg p-4">
-                              <code className="text-white font-mono">gorunn init --import https://github.com/parapidcom/gorunn-project-manifests.git</code>
+                              <code className="text-green-400 font-mono">gorunn init --parse --import https://github.com/parapidcom/gorunn-project-manifests.git</code>
                             </div>
                             <p className="text-gray-600 mt-2">Example stack includes React, Laravel, and Django projects</p>
                           </div>
@@ -392,7 +396,7 @@ const DocContent = () => {
                               <div>
                                 <p className="text-gray-600 mb-2">Parse project manifests:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn parse</code>
+                                  <code className="text-green-400 font-mono">gorunn parse</code>
                                 </div>
                                 <p className="text-gray-600 mt-2">
                                   During parsing, each project defined in manifests will be:
@@ -411,7 +415,7 @@ const DocContent = () => {
                               <div>
                                 <p className="text-gray-600 mb-2">Build all projects:</p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn build --app all</code>
+                                  <code className="text-green-400 font-mono">gorunn build --app all</code>
                                 </div>
                               </div>
                               <div>
@@ -480,6 +484,9 @@ workspace_path: /path/to/workspace`}
                           Project manifests are YAML files that define your development stack configuration. They can be used either locally
                           or shared via a Git repository for team collaboration.
                         </p>
+                        <p className="text-gray-600 mb-6">
+                          Check out the <Link href="https://github.com/parapidcom/gorunn-project-manifests" className="text-gray-900 hover:text-gray-600">gorunn-project-manifests</Link> repository for examples.
+                        </p>
 
                         <div className="space-y-6">
                           <div>
@@ -504,7 +511,7 @@ workspace_path: /path/to/workspace`}
                                     the entire development environment with a single command:
                                   </p>
                                   <div className="bg-gray-800 rounded-lg p-4 mt-2">
-                                    <code className="text-white font-mono">gorunn init --import git@github.com:yourorg/manifests.git</code>
+                                    <code className="text-green-400 font-mono">gorunn init --parse --import git@github.com:yourorg/manifests.git</code>
                                   </div>
                                 </div>
                               </li>
@@ -582,7 +589,7 @@ custom_commands:          # Define project-specific commands
                                     After modifying environment files, encrypt them before committing:
                                   </p>
                                   <div className="bg-gray-800 rounded-lg p-4 mt-2">
-                                    <code className="text-white font-mono">gorunn projects env --encrypt --app myapp</code>
+                                    <code className="text-green-400 font-mono">gorunn projects env --encrypt --app myapp</code>
                                   </div>
                                 </div>
                               </li>
@@ -594,7 +601,7 @@ custom_commands:          # Define project-specific commands
                                     Commit and push the encrypted .env.enc files to your repository. Team members can then pull and decrypt:
                                   </p>
                                   <div className="bg-gray-800 rounded-lg p-4 mt-2">
-                                    <code className="text-white font-mono">gorunn projects env --decrypt --app myapp</code>
+                                    <code className="text-green-400 font-mono">gorunn projects env --decrypt --app myapp</code>
                                   </div>
                                 </div>
                               </li>
@@ -807,55 +814,71 @@ custom_commands:          # Define project-specific commands
                                 <thead className="bg-gray-50">
                                   <tr>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service</th>
-                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Port Forward</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Container Port</th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Host Port</th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Environment Variables</th>
                                   </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MySQL 8</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">3306</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">13306</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MYSQL_HOST, DB_USERNAME, DB_PASSWORD</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Postgres</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">5432</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15432</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">POSTGRESQL_HOST, DB_USERNAME, DB_PASSWORD</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Redis</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">6379</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">16379</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">REDIS_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Chroma</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">8000</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">18000</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">CHROMA_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">OpenSearch</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">9200</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">19200</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">OPENSEARCH_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Kafka</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">29092</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">9092</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">19092</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">KAFKA_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Memcached</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">11211</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">21211</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MEMCACHED_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">RabbitMQ</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">5672</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">15672</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">RABBITMQ_HOST</td>
                                   </tr>
                                   <tr>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">MongoDB</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">27017</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">37017</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">MONGO_HOST</td>
+                                  </tr>
+                                  <tr>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Mongo Express</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">8081</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">18081</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600"></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -936,7 +959,7 @@ custom_commands:          # Define project-specific commands
                                   To use Aider with your project:
                                 </p>
                                 <div className="bg-gray-800 rounded-lg p-4">
-                                  <code className="text-white font-mono">gorunn aider --app APP_NAME --browser</code>
+                                  <code className="text-green-400 font-mono">gorunn aider --app APP_NAME --browser</code>
                                 </div>
                                 <p className="text-gray-600 mt-4">
                                   This will start Aider in browser mode, allowing you to interact with the AI assistant through a web interface at
