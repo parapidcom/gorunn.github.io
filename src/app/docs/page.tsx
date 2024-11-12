@@ -342,9 +342,9 @@ const DocContent = () => {
                         <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Installation</h3>
                         <div className="space-y-6">
                           <div className="bg-white rounded-lg shadow-sm p-6">
-                            <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Install via pip</h3>
+                            <h3 className="text-xl font-semibold text-[#1a3a1a] mb-4">Install via <a href="https://github.com/pypa/pipx" className="text-[#1a3a1a] underline hover:text-[#2a4a2a]">pipx</a></h3>
                             <div className="bg-gray-800 rounded-lg p-4">
-                              <code className="text-green-400 font-mono">pip install gorunn</code>
+                              <code className="text-green-400 font-mono">pipx install gorunn</code>
                             </div>
                             <div className="mt-6">
                               <p className="text-gray-600">After installation, you can verify the installation by checking the version:</p>

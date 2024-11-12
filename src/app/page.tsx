@@ -139,10 +139,15 @@ const GorunnPage = () => {
           {/* Installation Command */}
           <div className="mt-8 flex items-center justify-center gap-8">
             <div>
+            <p className="mt-2 text-sm text-gray-500">
+                  <Link href="https://github.com/pypa/pipx" className="text-blue-900 hover:text-gray-600">
+                    set up pipx
+                  </Link>
+              </p>
               <div className="bg-gray-800 rounded-lg p-4">
                 <div className="flex items-center gap-2">
                   <code className="text-green-400 font-mono text-sm sm:text-base">
-                    pip install gorunn
+                    pipx install gorunn
                   </code>
                 </div>
               </div>
